@@ -1,0 +1,52 @@
+{
+  "name": "storyfaktor/mail",
+  "description": "Sending Laravel Mails from Twig Templates",
+  "keywords": [
+      "Laravel Mail Templates Twig"  ],
+  "homepage": "https://github.com/storyfaktor/mail",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michael Gerzabek",
+      "email": "michael.gerzabek@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.4",
+    "illuminate/contracts": "^7.0|^8.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^6.0",
+    "phpunit/phpunit": "^9.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Storyfaktor\\Mail\\": "src"    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Storyfaktor\\Mail\\Tests\\": "tests/src"    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit --colors=always --testdox",
+    "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+    "migrate": "vendor/bin/testbench migrate",
+    "rollback": "vendor/bin/testbench migrate:rollback"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Storyfaktor\\Mail\\MailServiceProvider"
+      ],
+      "aliases": {
+        "Mail": "Storyfaktor\\Mail\\MailFacade"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

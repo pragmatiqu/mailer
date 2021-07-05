@@ -1,0 +1,11 @@
+.idea
+.buildpath
+.project
+.DS_Store
+.settings
+.php_cs.cache
+.phpunit.result.cache
+build
+composer.lock
+coverage
+vendor
