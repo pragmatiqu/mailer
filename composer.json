@@ -41,10 +41,7 @@
     "laravel": {
       "providers": [
         "Storyfaktor\\Mail\\MailServiceProvider"
-      ],
-      "aliases": {
-        "Mail": "Storyfaktor\\Mail\\MailFacade"
-      }
+      ]
     }
   },
   "minimum-stability": "dev",
