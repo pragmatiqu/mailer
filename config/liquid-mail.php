@@ -4,22 +4,9 @@ return [
 
   /*
    |--------------------------------------------------------------------------
-   | Deklariere alle verwendeten API Elemente
+   | Deklariere alle konfigurierbaren Interface Schalter
    |--------------------------------------------------------------------------
    |
    */
-  'imports' => [
-
-    'users' => [
-      'model'      => config(
-        'auth.providers.users.model',
-        Storyfaktor\Mail\Tests\Fixture\Models\User::class
-      ),
-      'properties' => [
-        'id'       => 'ForeignKey',
-        // liste alle verwendeten Properties am User Model auf
-        // …
-      ]
-    ]
-  ]
+  
 ];

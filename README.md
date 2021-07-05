@@ -31,7 +31,7 @@ php artisan migrate
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Storyfaktor\Mail\MailServiceProvider" --tag="mail-config"
+php artisan vendor:publish --provider="Storyfaktor\Mail\LiquidMailServiceProvider" --tag="mail-config"
 ```
 
 This is the contents of the published config file:
@@ -68,7 +68,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/mgerzabek)
+- [Michael Gerzabek](https://github.com/mgerzabek)
 - [All Contributors](../../contributors)
 
 ## License
