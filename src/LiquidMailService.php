@@ -2,6 +2,6 @@
 
 namespace Storyfaktor\Mail;
 
-class MailService
+class LiquidMailService
 {
 }

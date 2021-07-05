@@ -1,8 +1,12 @@
 {
   "name": "storyfaktor/mail",
-  "description": "Sending Laravel Mails from Twig Templates",
+  "description": "Sending Laravel Mails from Liquid Templates",
   "keywords": [
-      "Laravel Mail Templates Twig"  ],
+      "Laravel",
+      "Mail",
+      "Liquid",
+      "Templates"  
+  ],
   "homepage": "https://github.com/storyfaktor/mail",
   "license": "MIT",
   "authors": [
@@ -14,7 +18,8 @@
   ],
   "require": {
     "php": "^7.4",
-    "illuminate/contracts": "^7.0|^8.0"
+    "illuminate/contracts": "^7.0|^8.0",
+    "liquid/liquid": "^1.4"
   },
   "require-dev": {
     "orchestra/testbench": "^6.0",
@@ -40,7 +45,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Storyfaktor\\Mail\\MailServiceProvider"
+        "Storyfaktor\\Mail\\LiquidMailServiceProvider"
       ]
     }
   },

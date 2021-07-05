@@ -4,14 +4,14 @@ namespace Storyfaktor\Mail;
 
 use Illuminate\Support\ServiceProvider;
 
-class MailServiceProvider extends ServiceProvider
+class LiquidMailServiceProvider extends ServiceProvider
 {
   public function boot()
   {
     if ( $this->app->runningInConsole() )
     {
       $this->publishes( [
-        __DIR__ . '/../config/mail.php' => config_path( 'mail.php' ),
+        __DIR__ . '/../config/liquid-mail.php' => config_path( 'liquid-mail.php' ),
       ], 'config' );
 
     }
@@ -19,6 +19,6 @@ class MailServiceProvider extends ServiceProvider
 
   public function register()
   {
-    $this->mergeConfigFrom( __DIR__ . '/../config/mail.php', 'mail' );
+    $this->mergeConfigFrom( __DIR__ . '/../config/liquid-mail.php', 'liquid-mail' );
   }
 }
