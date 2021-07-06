@@ -149,10 +149,10 @@ class LiquidViewFactory implements Factory
     return $this;
   }
 
-  // ------------------------------------------------------------------------------
-  // Wir ignorieren die Events einmal für’s Erste. Nehme an, dass wir die gar
-  // nicht brauchen werden, weil wir ja ohnehin eine stark vereinfachte Form
-  // einer View zur Verfügung stellen
+  // ---------------------------------------------------------------------------
+  // We ignore these events for now. Liquid views can be seen as self contained
+  // templates. From Laravel’s point of view, there is no composition to be made.
+  // This is done implicitly within the liquid subsystem.
 
   public function composer( $views, $callback )
   {

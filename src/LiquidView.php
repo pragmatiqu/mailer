@@ -6,6 +6,7 @@ namespace Storyfaktor\Mail;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\View\View;
+use Liquid\Liquid;
 use Liquid\Template;
 
 class LiquidView implements View
@@ -45,7 +46,7 @@ class LiquidView implements View
     $this->view = $view;
     $this->path = $path;
 
-    $this->data = $data instanceof Arrayable ? $data->toArray() : (array)$data;
+    $this->data = $data instanceof Arrayable ? $data->toArray() : (array) $data;
   }
 
   /**
@@ -90,7 +91,7 @@ class LiquidView implements View
   }
 
   /**
-   * Löst alle Variablen auf und gibt einen Markdown String zurück.
+   * Löst alle Variablen auf und gibt den gerenderten String zurück.
    *
    * @return array|string
    *
@@ -98,6 +99,11 @@ class LiquidView implements View
    */
   public function render()
   {
+    // TODO Caching aktivieren
+    // @see https://github.com/kalimatas/php-liquid
+    Liquid::set( 'INCLUDE_PREFIX', '' );
+
+    // TODO Include Path setzen
     $template = new Template();
     if ( $content = file_get_contents( $this->path ) )
     {
