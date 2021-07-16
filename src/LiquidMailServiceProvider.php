@@ -27,6 +27,7 @@ class LiquidMailServiceProvider extends ServiceProvider
       // TODO Wo die Templates gespeichert sind, sollte im eigenen Config File stehen!
       // TODO Templates haben die Extension .liquid (FileViewFinder entsprechend konfigurieren)
       $finder = new FileViewFinder( $app['files'], $app['config']['view.mails'], [ 'css', 'html', 'md', 'txt' ] );
+      // TODO Globale Daten, wie die aus config/ci.php, etc. über share() hinzufügen
       return new LiquidViewFactory( $finder );
     } );
 
