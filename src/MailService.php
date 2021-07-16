@@ -5,8 +5,9 @@ namespace Storyfaktor\Mail;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
 
-class LiquidMailService
+class MailService
 {
+
   /**
    * Send message with given data using specified mailer.
    *
