@@ -2,8 +2,8 @@
 
 namespace Storyfaktor\Mail\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Storyfaktor\Mail\LiquidMailServiceProvider;
+
+use Storyfaktor\Mail\MailServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -22,7 +22,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
   protected function getPackageProviders( $app )
   {
     return [
-      LiquidMailServiceProvider::class
+      MailServiceProvider::class
     ];
   }
 }
