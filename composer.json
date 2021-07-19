@@ -46,8 +46,11 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Storyfaktor\\Mail\\LiquidMailServiceProvider"
-      ]
+        "Storyfaktor\\Mail\\MailServiceProvider"
+      ],
+      "aliases": {
+        "Mailer": "Storyfaktor\\Mail\\Mailer"
+      }
     }
   },
   "minimum-stability": "dev",
