@@ -2,11 +2,16 @@
 
 namespace Storyfaktor\Mail;
 
-use Illuminate\Contracts\Mail\Factory as FactoryContract;
+use Illuminate\Support\Traits\Macroable;
 use InvalidArgumentException;
+use Symfony\Component\Mailer\MailerInterface;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
-class MailManager implements FactoryContract
+class MailerManager
 {
+  use Macroable;
+
   /**
    * The application instance.
    *
@@ -22,6 +27,13 @@ class MailManager implements FactoryContract
   protected $mailers = [];
 
   /**
+   * The twig environment.
+   *
+   * @var Environment
+   */
+  protected $twig;
+
+  /**
    * Create a new MailService instance.
    *
    * @param \Illuminate\Contracts\Foundation\Application $app
@@ -30,9 +42,19 @@ class MailManager implements FactoryContract
   public function __construct( $app )
   {
     $this->app = $app;
+
+    $root = $this->app['config']['mail.templates.root'];
+    $config = $this->app['config']['mail.templates.environment'];
+
+    $loader = new FilesystemLoader( $root, $root );
+    $this->twig = new Environment( $loader, $config );
   }
 
-  public function mailer( $name = null )
+  /**
+   * @param string|null $name
+   * @return MailerInterface
+   */
+  public function name( $name = null ): MailerInterface
   {
     $name = $name ?: $this->app['config']['mail.default'];
 
@@ -43,9 +65,9 @@ class MailManager implements FactoryContract
    * Attempt to get the mailer from the local cache.
    *
    * @param string $name
-   * @return \Illuminate\Mail\Mailer
+   * @return MailerInterface
    */
-  protected function get( $name )
+  protected function get( $name ): MailerInterface
   {
     return $this->mailers[$name] ?? $this->resolve( $name );
   }
@@ -54,11 +76,11 @@ class MailManager implements FactoryContract
    * Resolve the given mailer.
    *
    * @param string $name
-   * @return \Illuminate\Mail\Mailer
+   * @return MailerInterface
    *
    * @throws \InvalidArgumentException
    */
-  protected function resolve( $name )
+  protected function resolve( $name ): MailerInterface
   {
     $config = $this->app['config']["mail.mailers.{$name}"];
 
@@ -68,5 +90,7 @@ class MailManager implements FactoryContract
     }
 
     /** {@see \Illuminate\Mail\MailManager} */
+
   }
+
 }
