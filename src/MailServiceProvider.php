@@ -11,14 +11,14 @@ class MailServiceProvider extends ServiceProvider
     if ( $this->app->runningInConsole() )
     {
       $this->publishes( [
-        __DIR__ . '/../config/mailer.php' => config_path( 'mailer.php' ),
+        __DIR__ . '/../config/mail.php' => config_path( 'mail.php' ),
       ], 'config' );
     }
   }
 
   public function register()
   {
-    $this->mergeConfigFrom( __DIR__ . '/../config/mailer.php', 'mailer' );
+    $this->mergeConfigFrom( __DIR__ . '/../config/mail.php', 'mail' );
 
     $this->app->singleton( 'mailer.manager', function ( $app )
     {
@@ -34,7 +34,7 @@ class MailServiceProvider extends ServiceProvider
   public function provides()
   {
     return [
-      'mail.manager'
+      'mailer.manager'
     ];
   }
 }
