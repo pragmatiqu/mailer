@@ -3,6 +3,7 @@
 namespace Storyfaktor\Mail;
 
 use Illuminate\Support\ServiceProvider;
+use Storyfaktor\Mail\Contracts\MailFactory;
 
 class MailServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,10 @@ class MailServiceProvider extends ServiceProvider
   {
     $this->mergeConfigFrom( __DIR__ . '/../config/mail.php', 'mail' );
 
+    $this->app->singleton( MailFactory::class, function ( $app )
+    {
+      return new FilesystemMailFactory( $app['config']['mail.templates.root'] );
+    } );
     $this->app->singleton( 'mailer.manager', function ( $app )
     {
       return new MailerManager( $app );
