@@ -2,11 +2,23 @@
 
 namespace Storyfaktor\Mail\Tests;
 
+use Illuminate\Support\Str;
+use Storyfaktor\Mail\Status;
+use Symfony\Component\Mime\Address;
+
 class BasicTest extends TestCase
 {
   /** @test */
-  public function true_is_true()
+  public function status_is_delivered()
   {
-    $this->assertTrue(true);
+    $email = 'foo@bar.com';
+    $address = Address::create( $email );
+    $messageId = Str::random( 10 );
+
+    $status = ( new Status( $messageId, $address ) )
+      ->delivered();
+    $this->assertEquals( $messageId, $status->getMessageId() );
+    $this->assertTrue( $status->isDelivered() );
+    $this->assertEquals( $email, $address->getEncodedAddress() );
   }
 }

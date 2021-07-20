@@ -13,7 +13,7 @@ interface MailService
    *
    * @param TemplatedEmail $email Name of the mail template
    * @param array          $data  Additional data to merge into the template
-   * @return array     The {@see \Storyfaktor\Mail\Contracts\MailStatus}es for any given {@see \Symfony\Component\Mime\Address} on the $email
+   * @return array     The {@see \Storyfaktor\Mail\Status}es for any given {@see \Symfony\Component\Mime\Address} on the $email
    */
   public function send( TemplatedEmail $email, array $data = [] ): array;
 
@@ -24,7 +24,7 @@ interface MailService
    * @param Collection     $recipients Collection should at least contain <i>email</i> addresses of the recipients; can include further user related properties
    * @param TemplatedEmail $email      Name of the mail template
    * @param array          $data       Additional data to merge into the template
-   * @return array The {@see \Storyfaktor\Mail\Contracts\MailStatus}es for any given {@see \Symfony\Component\Mime\Address} in the $recipients collection; <i>Cc</i> and <i>Bcc</i> on $email will be ignored
+   * @return array The {@see \Storyfaktor\Mail\Status}es for any given {@see \Symfony\Component\Mime\Address} in the $recipients collection; <i>Cc</i> and <i>Bcc</i> on $email will be ignored
    */
   public function spread( Collection $recipients, TemplatedEmail $email, array $data = [] ): array;
 
