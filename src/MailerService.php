@@ -9,15 +9,17 @@ use Illuminate\Support\Facades\Log;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\Transport\TransportInterface;
+use Symfony\Component\Mime\Address;
 
 class MailerService implements Contracts\Mailer
 {
-
   private TransportInterface $transport;
+  private array $from;
 
-  public function __construct( TransportInterface $transport )
+  public function __construct( TransportInterface $transport, array $from )
   {
     $this->transport = $transport;
+    $this->from = $from;
   }
 
   /**
@@ -32,6 +34,13 @@ class MailerService implements Contracts\Mailer
       // und über die send() Methode werden dann die jeweiligen Benutzervariablen
       // übergeben. Die werden hier nun miteinander vermischt.
       $email->context( array_merge( $email->getContext(), $data ) );
+
+      // Ist kein Absender gesetzt verwenden wir die global hinterlegt
+      // Absenderadresse
+      if ( 0 === sizeof( $email->getFrom() ) && null !== $this->from )
+      {
+        $email->from( new Address( $this->from['address'], $this->from['name'] ) );
+      }
 
       $message = $this->transport->send( $email, null );
 
@@ -51,7 +60,7 @@ class MailerService implements Contracts\Mailer
   /**
    * @inheritDoc
    */
-  public function spread( Collection $recipients, TemplatedEmail $email, array $data = [] ): array
+  public function spread( Collection $recipients, string $template, array $data = [] ): array
   {
     // TODO: Implement spread() method.
   }

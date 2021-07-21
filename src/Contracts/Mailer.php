@@ -9,8 +9,7 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 interface Mailer
 {
   /**
-   * Send message with given data using specified mailer. Use this method for
-   * single mails with <i>Cc</i> and <i>Bcc</i> recipients.
+   * Send message with given data.
    *
    * @param TemplatedEmail $email Name of the mail template
    * @param array          $data  Additional data to merge into the template
@@ -19,15 +18,15 @@ interface Mailer
   public function send( TemplatedEmail $email, array $data = [] ): Status;
 
   /**
-   * Send message to recipients in collection with given data using specified mailer.
-   * Use this method to send bulk mails. <i>Cc</i> and <i>Bcc</i> headers will be ignored!
+   * Send message to recipients in collection with given data.
+   * Use this method to send bulk mails.
    *
-   * @param Collection     $recipients Collection should at least contain <i>email</i> addresses of the recipients; can include further user related properties
-   * @param TemplatedEmail $email      Name of the mail template
-   * @param array          $data       Additional data to merge into the template
-   * @return array The {@see \Storyfaktor\Mail\Status}es for any given {@see \Symfony\Component\Mime\Address} in the $recipients collection; <i>Cc</i> and <i>Bcc</i> on $email will be ignored
+   * @param Collection $recipients Collection should at least contain <i>email</i> addresses of the recipients; can include further user related properties
+   * @param string     $template   Name of the mail template
+   * @param array      $data       Additional data to merge into the template
+   * @return Status[] for any given record in the recipients collection
    */
-  public function spread( Collection $recipients, TemplatedEmail $email, array $data = [] ): array;
+  public function spread( Collection $recipients, string $template, array $data = [] ): array;
 
   // TODO Die Collection werden wir auch noch minimal spezifizieren und dann geht’s dahin…
 }

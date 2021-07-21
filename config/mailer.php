@@ -31,8 +31,8 @@ return [
   |
   */
   'from'       => [
-    'address' => env( 'MAIL_FROM_ADDRESS', 'office@survival.at' ),
-    'name'    => env( 'MAIL_FROM_NAME', 'Survival.at®' ),
+    'address' => env( 'FROM_ADDRESS', 'test@test.at' ),
+    'name'    => env( 'FROM_NAME', 'Testing' ),
   ],
 
   /*

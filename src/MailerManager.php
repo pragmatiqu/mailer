@@ -60,7 +60,8 @@ class MailerManager
 
       $transport = Transport::fromDsn( $config, $dispatcher );
 
-      $this->mailers[$name] = new MailerService( $transport );
+      $this->mailers[$name] = new MailerService( $transport, $this->app['config']['mailer.from'] );
+      config('mailer.from', null );
     }
 
     return $this->mailers[$name];
