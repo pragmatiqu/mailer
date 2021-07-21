@@ -6,6 +6,8 @@ namespace Storyfaktor\Mail;
 
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
+// TODO Die Fileextension der Templates ist ja per config einstellbar…
+//
 class FilesystemMailFactory implements Contracts\MailFactory
 {
 
@@ -19,9 +21,25 @@ class FilesystemMailFactory implements Contracts\MailFactory
   /**
    * @inheritDoc
    */
-  public function exists( string $name ): bool
+  public function exists( string $name, string $kind = null ): bool
   {
-    return is_dir( $this->root . DIRECTORY_SEPARATOR . $name );
+    if ( is_null( $kind ) )
+    {
+      return is_dir( $this->root . DIRECTORY_SEPARATOR . $name );
+    }
+    elseif ( 'text' === $kind )
+    {
+      return is_file( $this->root . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . 'text.twig' );
+    }
+    elseif ( 'html' === $kind )
+    {
+      return is_file( $this->root . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . 'html.twig' );
+    }
+    elseif ( 'subject' === $kind )
+    {
+      return is_file( $this->root . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . 'subject.twig' );
+    }
+    return false;
   }
 
   protected function getTxtTemplateName( string $name )
@@ -44,10 +62,21 @@ class FilesystemMailFactory implements Contracts\MailFactory
    */
   public function create( string $name, array $data = [] ): TemplatedEmail
   {
-    return ( new TemplatedEmail() )
-      ->htmlTemplate( $this->getHtmlTemplateName( $name ) )
-      ->textTemplate( $this->getTxtTemplateName( $name ) )
-      //->subjectTemplate( $this->getSubjectTemplateName( $name ) )
+    $email = ( new TemplatedEmail() )
       ->context( $data );
+
+    if ( $this->exists( $name, 'html' ) )
+    {
+      $email->htmlTemplate( $this->getHtmlTemplateName( $name ) );
+    }
+    if ( $this->exists( $name, 'text' ) )
+    {
+      $email->textTemplate( $this->getTxtTemplateName( $name ) );
+    }
+    if ( $this->exists( $name, 'subject' ) )
+    {
+      //$email->subjectTemplate( $this->getSubjectTemplateName( $name ) )
+    }
+    return $email;
   }
 }

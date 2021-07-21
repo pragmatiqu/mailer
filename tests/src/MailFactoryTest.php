@@ -20,7 +20,7 @@ class MailFactoryTest extends TestCase
   {
     parent::setUp();
 
-    $this->factory = new FilesystemMailFactory( '/Users/indi/git/mail/tests/fixture/mails' );
+    $this->factory = new FilesystemMailFactory( realpath(__DIR__.'/../fixture/mails') );
   }
 
   /** @test */
