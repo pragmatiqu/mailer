@@ -1,5 +1,5 @@
 {
-  "name": "storyfaktor/mail",
+  "name": "storyfaktor/mailer",
   "description": "Sending Laravel Mails from Liquid Templates",
   "keywords": [
       "Laravel",
@@ -7,7 +7,7 @@
       "Liquid",
       "Templates"  
   ],
-  "homepage": "https://github.com/storyfaktor/mail",
+  "homepage": "https://github.com/storyfaktor/mailer",
   "license": "MIT",
   "authors": [
     {
