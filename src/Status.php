@@ -69,7 +69,7 @@ class Status
     return $this->error;
   }
 
-  public function setError( string $error ): Status
+  public function withError( string $error ): Status
   {
     $this->error = $error;
 

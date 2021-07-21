@@ -3,6 +3,7 @@
 namespace Storyfaktor\Mail\Contracts;
 
 use Illuminate\Support\Collection;
+use Storyfaktor\Mail\Status;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 interface Mailer
@@ -13,9 +14,9 @@ interface Mailer
    *
    * @param TemplatedEmail $email Name of the mail template
    * @param array          $data  Additional data to merge into the template
-   * @return array     The {@see \Storyfaktor\Mail\Status}es for any given {@see \Symfony\Component\Mime\Address} on the $email
+   * @return Status     The status of the send
    */
-  public function send( TemplatedEmail $email, array $data = [] ): array;
+  public function send( TemplatedEmail $email, array $data = [] ): Status;
 
   /**
    * Send message to recipients in collection with given data using specified mailer.
