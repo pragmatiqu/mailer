@@ -32,7 +32,7 @@ class MailFactoryTest extends TestCase
   /** @test */
   public function can_factor_html_template_name()
   {
-    $root = $this->app['config']['mail.templates.root'];
+    $root = $this->factory->getTemplateRoot();
     $config = $this->app['config']['mail.templates.environment'];
 
     $loader = new FilesystemLoader( $root, $root );

@@ -79,4 +79,9 @@ class FilesystemMailFactory implements Contracts\MailFactory
     }
     return $email;
   }
+
+  public function getTemplateRoot(): string
+  {
+    return $this->root;
+  }
 }

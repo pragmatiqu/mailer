@@ -9,6 +9,11 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 interface MailFactory
 {
   /**
+   * @return string The configured template root
+   */
+  public function getTemplateRoot(): string;
+
+  /**
    * @param string      $name Name of the template to look for
    * @param string|null $kind Special kind of template to look for ('text', 'html', 'subject')
    * @return bool

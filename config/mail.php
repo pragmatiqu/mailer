@@ -66,8 +66,7 @@ return [
    */
   'templates' => [
 
-    //'root' => resource_path( 'mails' ),
-    'root' => '/Users/indi/git/mail/tests/fixture/mails',
+    'root' => resource_path( 'mails' ),
 
     'extension'   => 'twig',
 
