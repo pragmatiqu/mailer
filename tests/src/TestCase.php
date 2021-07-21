@@ -3,7 +3,7 @@
 namespace Storyfaktor\Mail\Tests;
 
 
-use Storyfaktor\Mail\MailServiceProvider;
+use Storyfaktor\Mail\MailerServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -22,7 +22,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
   protected function getPackageProviders( $app )
   {
     return [
-      MailServiceProvider::class
+      MailerServiceProvider::class
     ];
   }
 }

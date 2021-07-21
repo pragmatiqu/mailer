@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\Facade;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 /**
- * @method static void macro( string $name, object|callable $macro )
+ * @method static \Storyfaktor\Mail\Contracts\Mailer transport( string $name = null )
  * @method static bool|string send( TemplatedEmail $email, array $data )
  * @method static array spread( Collection $recipients, TemplatedEmail $email, array $data )
  *
- * @see \Storyfaktor\Mail\Contracts\MailService
+ * @see \Storyfaktor\Mail\Contracts\Mailer
  * @see \Storyfaktor\Mail\MailerManager
  */
 class Mailer extends Facade

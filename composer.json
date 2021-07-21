@@ -46,7 +46,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Storyfaktor\\Mail\\MailServiceProvider"
+        "Storyfaktor\\Mail\\MailerServiceProvider"
       ],
       "aliases": {
         "Mailer": "Storyfaktor\\Mail\\Mailer"

@@ -2,16 +2,15 @@
 
 namespace Storyfaktor\Mail;
 
-use Illuminate\Support\Traits\Macroable;
 use InvalidArgumentException;
-use Symfony\Component\Mailer\MailerInterface;
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
+use Storyfaktor\Mail\Contracts\Mailer;
+use Symfony\Bridge\Twig\Mime\BodyRenderer;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\Mailer\EventListener\MessageListener;
+use Symfony\Component\Mailer\Transport;
 
 class MailerManager
 {
-  use Macroable;
-
   /**
    * The application instance.
    *
@@ -27,13 +26,6 @@ class MailerManager
   protected $mailers = [];
 
   /**
-   * The twig environment.
-   *
-   * @var Environment
-   */
-  protected $twig;
-
-  /**
    * Create a new MailService instance.
    *
    * @param \Illuminate\Contracts\Foundation\Application $app
@@ -42,55 +34,47 @@ class MailerManager
   public function __construct( $app )
   {
     $this->app = $app;
-
-    $root = $this->app['config']['mail.templates.root'];
-    $config = $this->app['config']['mail.templates.environment'];
-
-    $loader = new FilesystemLoader( $root, $root );
-    $this->twig = new Environment( $loader, $config );
   }
 
   /**
    * @param string|null $name
-   * @return MailerInterface
+   * @return Mailer
    */
-  public function name( $name = null ): MailerInterface
+  public function transport( string $name = null ): Mailer
   {
-    $name = $name ?: $this->app['config']['mail.default'];
+    $name = $name ?: $this->app['config']['mailer.default'];
 
-    return $this->mailers[$name] = $this->get( $name );
-  }
-
-  /**
-   * Attempt to get the mailer from the local cache.
-   *
-   * @param string $name
-   * @return MailerInterface
-   */
-  protected function get( $name ): MailerInterface
-  {
-    return $this->mailers[$name] ?? $this->resolve( $name );
-  }
-
-  /**
-   * Resolve the given mailer.
-   *
-   * @param string $name
-   * @return MailerInterface
-   *
-   * @throws \InvalidArgumentException
-   */
-  protected function resolve( $name ): MailerInterface
-  {
-    $config = $this->app['config']["mail.mailers.{$name}"];
-
-    if ( is_null( $config ) )
+    if ( !array_key_exists( $name, $this->mailers ) )
     {
-      throw new InvalidArgumentException( "Mailer [{$name}] is not defined." );
+      $config = $this->app['config']["mailer.transports.{$name}"];
+
+      if ( is_null( $config ) )
+      {
+        throw new InvalidArgumentException( "Mailer [{$name}] is not defined." );
+      }
+
+      $listener = new MessageListener( null, new BodyRenderer( $this->app->get( 'twig' ) ) );
+
+      $dispatcher = new EventDispatcher();
+      $dispatcher->addSubscriber( $listener );
+
+      $transport = Transport::fromDsn( $config, $dispatcher );
+
+      $this->mailers[$name] = new MailerService( $transport );
     }
 
-    /** {@see \Illuminate\Mail\MailManager} */
-
+    return $this->mailers[$name];
   }
 
+  /**
+   * Dynamically call the default mailer instance.
+   *
+   * @param string $method
+   * @param array  $parameters
+   * @return mixed
+   */
+  public function __call( string $method, array $parameters )
+  {
+    return $this->transport()->$method( ...$parameters );
+  }
 }

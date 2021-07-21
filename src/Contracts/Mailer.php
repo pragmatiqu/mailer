@@ -5,7 +5,7 @@ namespace Storyfaktor\Mail\Contracts;
 use Illuminate\Support\Collection;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
-interface MailService
+interface Mailer
 {
   /**
    * Send message with given data using specified mailer. Use this method for
