@@ -18,11 +18,6 @@ class MailerService implements Contracts\Mailer
     $this->transport = $transport;
   }
 
-  public function hello()
-  {
-    return 'Hello!';
-  }
-
   /**
    * @inheritDoc
    * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
