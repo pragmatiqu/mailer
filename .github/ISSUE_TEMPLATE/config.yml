@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
   - name: Stell eine Frage
-    url: https://github.com/storyfaktor/mail/discussions/new?category=q-a
+    url: https://github.com/storyfaktor/mailer/discussions/new?category=q-a
     about: Bitte die Community um Hilfe
   - name: Schlag neue Funktionalität vor
-    url: https://github.com/storyfaktor/mail/discussions/new?category=ideas
+    url: https://github.com/storyfaktor/mailer/discussions/new?category=ideas
     about: Teile deine Ideen für neue Funktionen
   - name: Einen Fehler melden
-    url: https://github.com/storyfaktor/mail/issues/new
+    url: https://github.com/storyfaktor/mailer/issues/new
     about: Melde einen reproduzierbaren Fehler

@@ -1,10 +1,10 @@
 {
   "name": "storyfaktor/mailer",
-  "description": "Sending Laravel Mails from Liquid Templates",
+  "description": "Sending Laravel Mails from Twig Templates",
   "keywords": [
       "Laravel",
       "Mail",
-      "Liquid",
+      "Twig",
       "Templates"  
   ],
   "homepage": "https://github.com/storyfaktor/mailer",

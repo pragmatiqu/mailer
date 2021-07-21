@@ -1,9 +1,9 @@
 # Sending Laravel Mails from Twig Templates
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/storyfaktor/mail.svg?style=flat-square)](https://packagist.org/packages/storyfaktor/mail)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/storyfaktor/mail/run-tests?label=tests)](https://github.com/storyfaktor/mail/actions?query=workflow%3ATests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/storyfaktor/mail/Check%20&%20fix%20styling?label=code%20style)](https://github.com/storyfaktor/mail/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/storyfaktor/mail.svg?style=flat-square)](https://packagist.org/packages/storyfaktor/mail)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/storyfaktor/mailer.svg?style=flat-square)](https://packagist.org/packages/storyfaktor/mailer)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/storyfaktor/mailer/run-tests?label=tests)](https://github.com/storyfaktor/mailer/actions?query=workflow%3ATests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/storyfaktor/mailer/Check%20&%20fix%20styling?label=code%20style)](https://github.com/storyfaktor/mailer/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/storyfaktor/mailer.svg?style=flat-square)](https://packagist.org/packages/storyfaktor/mailer)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
@@ -20,7 +20,7 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require storyfaktor/mail
+composer require storyfaktor/mailer
 ```
 
 Don’t forget to run the migrations with:

@@ -5,7 +5,6 @@ namespace Storyfaktor\Mail\Tests;
 use Storyfaktor\Mail\Contracts\MailFactory;
 use Symfony\Bridge\Twig\Mime\BodyRenderer;
 
-// https://packagist.org/packages/symfony/mailer
 class MailFactoryTest extends TestCase
 {
   private MailFactory $factory;
