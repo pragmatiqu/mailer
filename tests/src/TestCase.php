@@ -3,6 +3,7 @@
 namespace Storyfaktor\Mail\Tests;
 
 
+use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
 use Storyfaktor\Mail\MailerServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
@@ -10,8 +11,15 @@ class TestCase extends \Orchestra\Testbench\TestCase
   public function setUp(): void
   {
     parent::setUp();
+  }
 
-    // MAILER_DSN=smtp://5c4f01ba19fbcc:1481a3a0b12556@smtp.mailtrap.io:2525
+  // @from https://github.com/orchestral/testbench/issues/211
+  protected function getEnvironmentSetUp( $app )
+  {
+    // make sure, our .env file is loaded
+    $app->useEnvironmentPath( __DIR__ . '/../..' );
+    $app->bootstrapWith( [ LoadEnvironmentVariables::class ] );
+    parent::getEnvironmentSetUp( $app );
   }
 
   public function tearDown(): void

@@ -4,12 +4,12 @@ return [
 
   /*
   |--------------------------------------------------------------------------
-  | Default Transport
+  | Transport
   |--------------------------------------------------------------------------
   |
   | This option controls the default transport that is used to send any email
   | messages sent by your application. Alternative transports may be setup
-  | and used as needed; however, this transport will be used by default.
+  | and used as needed; default transport will be used if not other stated.
   |
   */
   'default' => env( 'TRANSPORT', 'sendmail' ),
