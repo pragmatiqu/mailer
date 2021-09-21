@@ -1,9 +1,9 @@
 <?php
 
-namespace Storyfaktor\Mail;
+namespace Pragmatic\Mail;
 
 use Illuminate\Support\ServiceProvider;
-use Storyfaktor\Mail\Contracts\MailFactory;
+use Pragmatic\Mail\Contracts\MailFactory;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 

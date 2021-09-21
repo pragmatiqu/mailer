@@ -1,10 +1,10 @@
 <?php
 
-namespace Storyfaktor\Mail\Tests;
+namespace Pragmatic\Mail\Tests;
 
 
 use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
-use Storyfaktor\Mail\MailerServiceProvider;
+use Pragmatic\Mail\MailerServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

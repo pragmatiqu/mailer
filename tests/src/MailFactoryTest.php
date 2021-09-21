@@ -1,8 +1,8 @@
 <?php
 
-namespace Storyfaktor\Mail\Tests;
+namespace Pragmatic\Mail\Tests;
 
-use Storyfaktor\Mail\Contracts\MailFactory;
+use Pragmatic\Mail\Contracts\MailFactory;
 use Symfony\Bridge\Twig\Mime\BodyRenderer;
 
 class MailFactoryTest extends TestCase

@@ -1,9 +1,9 @@
 <?php
 
-namespace Storyfaktor\Mail;
+namespace Pragmatic\Mail;
 
 use InvalidArgumentException;
-use Storyfaktor\Mail\Contracts\Mailer;
+use Pragmatic\Mail\Contracts\Mailer;
 use Symfony\Bridge\Twig\Mime\BodyRenderer;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Mailer\EventListener\MessageListener;

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Storyfaktor\Mail\Contracts;
+namespace Pragmatic\Mail\Contracts;
 
 
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;

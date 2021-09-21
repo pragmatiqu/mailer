@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Storyfaktor\Mail;
+namespace Pragmatic\Mail;
 
 
 use Illuminate\Support\Collection;

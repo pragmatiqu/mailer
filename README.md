@@ -1,9 +1,9 @@
 # Sending Laravel Mails from Twig Templates
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/storyfaktor/mailer.svg?style=flat-square)](https://packagist.org/packages/storyfaktor/mailer)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/storyfaktor/mailer/run-tests?label=tests)](https://github.com/storyfaktor/mailer/actions?query=workflow%3ATests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/storyfaktor/mailer/Check%20&%20fix%20styling?label=code%20style)](https://github.com/storyfaktor/mailer/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/storyfaktor/mailer.svg?style=flat-square)](https://packagist.org/packages/storyfaktor/mailer)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/pragmaticag/mailer.svg?style=flat-square)](https://packagist.org/packages/pragmaticag/mailer)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/pragmaticag/mailer/run-tests?label=tests)](https://github.com/pragmaticag/mailer/actions?query=workflow%3ATests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/pragmaticag/mailer/Check%20&%20fix%20styling?label=code%20style)](https://github.com/pragmaticag/mailer/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/pragmaticag/mailer.svg?style=flat-square)](https://packagist.org/packages/pragmaticag/mailer)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
@@ -11,16 +11,16 @@ This is where your description should go. Limit it to a paragraph or two. Consid
 
 [Support Link](#)
 
-We invest a lot of resources into creating [best in class open source packages](https://storyfaktor.de/open-source). You can support us by [buying one of our paid products](https://storyfaktor.de/open-source/support-us).
+We invest a lot of resources into creating [best in class open source packages](https://pragmatic.ag/open-source). You can support us by [buying one of our paid products](https://pragmatic.ag/open-source/support-us).
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://storyfaktor.de/about-us). We publish all received postcards on [our virtual postcard wall](https://storyfaktor.de/open-source/postcards).
+We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://pragmatic.ag/about-us). We publish all received postcards on [our virtual postcard wall](https://pragmatic.ag/open-source/postcards).
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require storyfaktor/mailer
+composer require pragmaticag/mailer
 ```
 
 Don’t forget to run the migrations with:
@@ -31,7 +31,7 @@ php artisan migrate
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Storyfaktor\Mail\LiquidMailServiceProvider" --tag="mail-config"
+php artisan vendor:publish --provider="Pragmatic\Mail\LiquidMailServiceProvider" --tag="mail"
 ```
 
 This is the contents of the published config file:

@@ -1,5 +1,5 @@
 {
-  "name": "storyfaktor/mailer",
+  "name": "pragmaticag/mailer",
   "description": "Sending Laravel Mails from Twig Templates",
   "keywords": [
       "Laravel",
@@ -7,7 +7,7 @@
       "Twig",
       "Templates"  
   ],
-  "homepage": "https://github.com/storyfaktor/mailer",
+  "homepage": "https://github.com/pragmaticag/mailer",
   "license": "MIT",
   "authors": [
     {
@@ -28,11 +28,11 @@
   },
   "autoload": {
     "psr-4": {
-      "Storyfaktor\\Mail\\": "src"    }
+      "Pragmatic\\Mail\\": "src"    }
   },
   "autoload-dev": {
     "psr-4": {
-      "Storyfaktor\\Mail\\Tests\\": "tests/src"    }
+      "Pragmatic\\Mail\\Tests\\": "tests/src"    }
   },
   "scripts": {
     "test": "vendor/bin/phpunit --colors=always --testdox",
@@ -46,10 +46,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Storyfaktor\\Mail\\MailerServiceProvider"
+        "Pragmatic\\Mail\\MailerServiceProvider"
       ],
       "aliases": {
-        "Mailer": "Storyfaktor\\Mail\\Mailer"
+        "Mailer": "Pragmatic\\Mail\\Mailer"
       }
     }
   },

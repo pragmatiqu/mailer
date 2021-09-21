@@ -1,9 +1,9 @@
 <?php
 
-namespace Storyfaktor\Mail\Contracts;
+namespace Pragmatic\Mail\Contracts;
 
 use Illuminate\Support\Collection;
-use Storyfaktor\Mail\Status;
+use Pragmatic\Mail\Status;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 interface Mailer

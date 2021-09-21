@@ -1,9 +1,9 @@
 <?php
 
-namespace Storyfaktor\Mail\Tests;
+namespace Pragmatic\Mail\Tests;
 
 use Illuminate\Support\Str;
-use Storyfaktor\Mail\Status;
+use Pragmatic\Mail\Status;
 use Symfony\Component\Mime\Address;
 
 class BasicTest extends TestCase
