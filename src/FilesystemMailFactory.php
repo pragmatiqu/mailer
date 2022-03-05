@@ -4,8 +4,6 @@
 namespace Pragmatic\Mail;
 
 
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-
 class FilesystemMailFactory implements Contracts\MailFactory
 {
 
@@ -74,7 +72,7 @@ class FilesystemMailFactory implements Contracts\MailFactory
     }
     if ( $this->exists( $name, 'subject' ) )
     {
-      //$email->subjectTemplate( $this->getSubjectTemplateName( $name ) )
+      $email->subjectTemplate( $this->getSubjectTemplateName( $name ) );
     }
     return $email;
   }
