@@ -37,7 +37,7 @@ class MailerService implements Contracts\Mailer
 
       // Ist kein Absender gesetzt verwenden wir die global hinterlegt
       // Absenderadresse
-      if ( 0 === sizeof( $email->getFrom() ) && null !== $this->from )
+      if ( 0 === sizeof( $email->getFrom() ) )
       {
         $email->from( new Address( $this->from['address'], $this->from['name'] ) );
       }

@@ -6,16 +6,16 @@ namespace Pragmatic\Mail;
 
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
-// TODO Die Fileextension der Templates ist ja per config einstellbar…
-//
 class FilesystemMailFactory implements Contracts\MailFactory
 {
 
   private string $root;
+  private string $extension;
 
-  public function __construct( string $root )
+  public function __construct( string $root, string $extension = 'twig' )
   {
     $this->root = $root;
+    $this->extension = $extension;
   }
 
   /**
@@ -29,32 +29,32 @@ class FilesystemMailFactory implements Contracts\MailFactory
     }
     elseif ( 'text' === $kind )
     {
-      return is_file( $this->root . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . 'text.twig' );
+      return is_file( $this->root . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . 'text.' . $this->extension );
     }
     elseif ( 'html' === $kind )
     {
-      return is_file( $this->root . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . 'html.twig' );
+      return is_file( $this->root . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . 'html.' . $this->extension );
     }
     elseif ( 'subject' === $kind )
     {
-      return is_file( $this->root . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . 'subject.twig' );
+      return is_file( $this->root . DIRECTORY_SEPARATOR . $name . DIRECTORY_SEPARATOR . 'subject.' . $this->extension );
     }
     return false;
   }
 
-  protected function getTxtTemplateName( string $name )
+  protected function getTxtTemplateName( string $name ): string
   {
-    return sprintf( "%s%stext.twig", $name, DIRECTORY_SEPARATOR );
+    return sprintf( "%s%stext.%s", $name, DIRECTORY_SEPARATOR, $this->extension );
   }
 
-  protected function getSubjectTemplateName( string $name )
+  protected function getSubjectTemplateName( string $name ): string
   {
-    return sprintf( "%s%ssubject.twig", $name, DIRECTORY_SEPARATOR );
+    return sprintf( "%s%ssubject.%s", $name, DIRECTORY_SEPARATOR, $this->extension );
   }
 
-  protected function getHtmlTemplateName( string $name )
+  protected function getHtmlTemplateName( string $name ): string
   {
-    return sprintf( "%s%shtml.twig", $name, DIRECTORY_SEPARATOR );
+    return sprintf( "%s%shtml.%s", $name, DIRECTORY_SEPARATOR, $this->extension );
   }
 
   /**
@@ -62,8 +62,7 @@ class FilesystemMailFactory implements Contracts\MailFactory
    */
   public function create( string $name, array $data = [] ): TemplatedEmail
   {
-    $email = ( new TemplatedEmail() )
-      ->context( $data );
+    $email = ( new TemplatedEmail() )->context( $data );
 
     if ( $this->exists( $name, 'html' ) )
     {

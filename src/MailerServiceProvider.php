@@ -33,7 +33,12 @@ class MailerServiceProvider extends ServiceProvider
 
     $this->app->singleton( MailFactory::class, function ( $app )
     {
-      return new FilesystemMailFactory( $this->app->runningUnitTests() ? realpath( __DIR__ . '/../tests/fixture/mails' ) : $app['config']['mailer.templates.root'] );
+      return new FilesystemMailFactory(
+        $this->app->runningUnitTests()
+          ? realpath( __DIR__ . '/../tests/fixture/mails' )
+          : $app['config']['mailer.templates.root'],
+        $app['config']['mailer.templates.extension']
+      );
     } );
 
     $this->app->singleton( 'mailer.manager', function ( $app )
