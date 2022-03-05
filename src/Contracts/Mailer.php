@@ -4,7 +4,7 @@ namespace Pragmatic\Mail\Contracts;
 
 use Illuminate\Support\Collection;
 use Pragmatic\Mail\Status;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Pragmatic\Mail\TemplatedEmail;
 
 interface Mailer
 {

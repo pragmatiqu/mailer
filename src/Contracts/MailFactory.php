@@ -4,7 +4,7 @@
 namespace Pragmatic\Mail\Contracts;
 
 
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Pragmatic\Mail\TemplatedEmail;
 
 interface MailFactory
 {

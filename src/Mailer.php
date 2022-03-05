@@ -4,7 +4,6 @@ namespace Pragmatic\Mail;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 /**
  * @method static \Pragmatic\Mail\Contracts\Mailer transport( string $name = null )

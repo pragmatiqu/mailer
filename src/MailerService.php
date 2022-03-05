@@ -6,7 +6,6 @@ namespace Pragmatic\Mail;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\Transport\TransportInterface;
 use Symfony\Component\Mime\Address;
