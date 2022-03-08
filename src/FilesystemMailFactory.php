@@ -79,10 +79,11 @@ class FilesystemMailFactory implements Contracts\MailFactory
     }
 
     $assets = config( 'mailer.templates.root' ) . '/' . $name . '/assets';
-    foreach ( File::allFiles( $assets ) as $file )
-    {
-      $email->embedFromPath( $file->getRealPath(), Str::before( $file->getFilename(), '.' ) );
-    }
+    if ( File::exists( $assets ) && File::isDirectory( $assets ) )
+      foreach ( File::allFiles( $assets ) as $file )
+      {
+        $email->embedFromPath( $file->getRealPath(), Str::before( $file->getFilename(), '.' ) );
+      }
 
     return $email;
   }
