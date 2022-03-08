@@ -5,7 +5,9 @@ namespace Pragmatic\Mail;
 
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\Transport\TransportInterface;
 use Symfony\Component\Mime\Address;
@@ -41,6 +43,13 @@ class MailerService implements Contracts\Mailer
         $email->from( new Address( $this->from['address'], $this->from['name'] ) );
       }
 
+      // Globale Assets zur Verfügung stellen
+      $assets = config( 'mailer.templates.root' ) . '/assets';
+      foreach ( File::allFiles( $assets ) as $file )
+      {
+        $email->embedFromPath( $file->getRealPath(), Str::before( $file->getFilename(), '.' ) );
+      }
+
       $message = $this->transport->send( $email, null );
 
       return ( new Status( $message->getMessageId(), $email->getTo()[0] ) )
@@ -61,6 +70,6 @@ class MailerService implements Contracts\Mailer
    */
   public function spread( Collection $recipients, string $template, array $data = [] ): array
   {
-    // TODO: Implement spread() method.
+    return [];// TODO: Implement spread() method.
   }
 }

@@ -4,6 +4,9 @@
 namespace Pragmatic\Mail;
 
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+
 class FilesystemMailFactory implements Contracts\MailFactory
 {
 
@@ -74,6 +77,13 @@ class FilesystemMailFactory implements Contracts\MailFactory
     {
       $email->subjectTemplate( $this->getSubjectTemplateName( $name ) );
     }
+
+    $assets = config( 'mailer.templates.root' ) . '/' . $name . '/assets';
+    foreach ( File::allFiles( $assets ) as $file )
+    {
+      $email->embedFromPath( $file->getRealPath(), Str::before( $file->getFilename(), '.' ) );
+    }
+
     return $email;
   }
 
