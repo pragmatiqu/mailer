@@ -43,14 +43,6 @@ class MailerService implements Contracts\Mailer
         $email->from( new Address( $this->from['address'], $this->from['name'] ) );
       }
 
-      // Globale Assets zur Verfügung stellen
-      $assets = config( 'mailer.templates.root' ) . '/assets';
-      if ( File::exists( $assets ) && File::isDirectory( $assets ) )
-        foreach ( File::allFiles( $assets ) as $file )
-        {
-          $email->embedFromPath( $file->getRealPath(), Str::before( $file->getFilename(), '.' ) );
-        }
-
       $message = $this->transport->send( $email, null );
 
       return ( new Status( $message->getMessageId(), $email->getTo()[0] ) )

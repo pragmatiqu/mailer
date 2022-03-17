@@ -28,7 +28,9 @@ class MailerServiceProvider extends ServiceProvider
       $root = $this->app->runningUnitTests()
         ? realpath( __DIR__ . '/../tests/fixture/mails' )
         : $app['config']['mailer.templates.root'];
-      return new Environment( new FilesystemLoader( $root, $root ), $app['config']['mailer.templates.environment'] );
+      $loader = new FilesystemLoader( $root, $root );
+      $loader->addPath( 'assets', 'assets' );
+      return new Environment( $loader, $app['config']['mailer.templates.environment'] );
     } );
 
     $this->app->singleton( MailFactory::class, function ( $app )
