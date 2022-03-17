@@ -2,6 +2,7 @@
 
 namespace Pragmatic\Mail;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 use Pragmatic\Mail\Contracts\MailFactory;
 use Twig\Environment;
@@ -28,8 +29,13 @@ class MailerServiceProvider extends ServiceProvider
       $root = $this->app->runningUnitTests()
         ? realpath( __DIR__ . '/../tests/fixture/mails' )
         : $app['config']['mailer.templates.root'];
+
       $loader = new FilesystemLoader( $root, $root );
-      $loader->addPath( 'assets', 'assets' );
+      if ( File::exists( "{$root}/assets" ) && File::isDirectory( "{$root}/assets" ) )
+      {
+        $loader->addPath( 'assets', 'assets' );
+      }
+      
       return new Environment( $loader, $app['config']['mailer.templates.environment'] );
     } );
 
