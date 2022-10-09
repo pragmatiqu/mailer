@@ -43,7 +43,7 @@ class MailerService implements Contracts\Mailer
         $email->from( new Address( $this->from['address'], $this->from['name'] ) );
       }
 
-      $message = $this->transport->send( $email, null );
+      $message = $this->transport->send( $email );
 
       return ( new Status( $message->getMessageId(), $email->getTo()[0] ) )
         ->delivered();
