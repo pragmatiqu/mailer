@@ -7,7 +7,7 @@
 		"Twig",
 		"Templates"
 	],
-	"homepage" : "https://github.com/pragmaticag/mailer",
+	"homepage" : "https://github.com/pragmatiqu/mailer",
 	"license" : "MIT",
 	"authors" : [{
 			"name" : "Michael Gerzabek",
@@ -27,12 +27,12 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Pragmatic\\Mail\\" : "src"
+			"Pragmatiqu\\Mail\\" : "src"
 		}
 	},
 	"autoload-dev" : {
 		"psr-4" : {
-			"Pragmatic\\Mail\\Tests\\" : "tests/src"
+			"Pragmatiqu\\Mail\\Tests\\" : "tests/src"
 		}
 	},
 	"scripts" : {
@@ -47,10 +47,10 @@
 	"extra" : {
 		"laravel" : {
 			"providers" : [
-				"Pragmatic\\Mail\\MailerServiceProvider"
+				"Pragmatiqu\\Mail\\MailerServiceProvider"
 			],
 			"aliases" : {
-				"Mailer" : "Pragmatic\\Mail\\Mailer"
+				"Mailer" : "Pragmatiqu\\Mail\\Mailer"
 			}
 		}
 	},
