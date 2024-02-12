@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"Pragmatiqu\\Mail\\Tests\\BasicTest::status_is_delivered":0.019,"Pragmatiqu\\Mail\\Tests\\MailFactoryTest::can_check_for_existence":0,"Pragmatiqu\\Mail\\Tests\\MailFactoryTest::can_render_template":0.007,"Pragmatiqu\\Mail\\Tests\\MailerFacadeTest::can_resolve_service":0.004,"Pragmatiqu\\Mail\\Tests\\MailerFacadeTest::can_send_mail":0}}
