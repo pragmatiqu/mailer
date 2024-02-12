@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Pragmatic\Mail\Contracts;
+namespace Pragmatiqu\Mail\Contracts;
 
 
-use Pragmatic\Mail\TemplatedEmail;
+use Pragmatiqu\Mail\TemplatedEmail;
 
 interface MailFactory
 {

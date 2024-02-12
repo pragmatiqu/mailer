@@ -1,17 +1,17 @@
 <?php
 
-namespace Pragmatic\Mail;
+namespace Pragmatiqu\Mail;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \Pragmatic\Mail\Contracts\Mailer transport( string $name = null )
+ * @method static \Pragmatiqu\Mail\Contracts\Mailer transport( string $name = null )
  * @method static bool|string send( TemplatedEmail $email, array $data )
  * @method static array spread( Collection $recipients, TemplatedEmail $email, array $data )
  *
- * @see \Pragmatic\Mail\Contracts\Mailer
- * @see \Pragmatic\Mail\MailerManager
+ * @see \Pragmatiqu\Mail\Contracts\Mailer
+ * @see \Pragmatiqu\Mail\MailerManager
  */
 class Mailer extends Facade
 {

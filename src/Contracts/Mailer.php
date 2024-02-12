@@ -1,10 +1,10 @@
 <?php
 
-namespace Pragmatic\Mail\Contracts;
+namespace Pragmatiqu\Mail\Contracts;
 
 use Illuminate\Support\Collection;
-use Pragmatic\Mail\Status;
-use Pragmatic\Mail\TemplatedEmail;
+use Pragmatiqu\Mail\Status;
+use Pragmatiqu\Mail\TemplatedEmail;
 
 interface Mailer
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Pragmatic\Mail\Tests;
+namespace Pragmatiqu\Mail\Tests;
 
-use Pragmatic\Mail\Contracts\MailFactory;
+use Pragmatiqu\Mail\Contracts\MailFactory;
 use Symfony\Bridge\Twig\Mime\BodyRenderer;
 
 class MailFactoryTest extends TestCase

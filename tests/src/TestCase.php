@@ -1,10 +1,10 @@
 <?php
 
-namespace Pragmatic\Mail\Tests;
+namespace Pragmatiqu\Mail\Tests;
 
 
 use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
-use Pragmatic\Mail\MailerServiceProvider;
+use Pragmatiqu\Mail\MailerServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

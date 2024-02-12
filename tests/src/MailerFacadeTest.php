@@ -1,16 +1,16 @@
 <?php
 
-namespace Pragmatic\Mail\Tests;
+namespace Pragmatiqu\Mail\Tests;
 
-use Pragmatic\Mail\Contracts\MailFactory;
-use Pragmatic\Mail\Mailer;
+use Pragmatiqu\Mail\Contracts\MailFactory;
+use Pragmatiqu\Mail\Mailer;
 
 class MailerFacadeTest extends TestCase
 {
   /** @test */
   public function can_resolve_service()
   {
-    $this->assertTrue( Mailer::transport() instanceof \Pragmatic\Mail\Contracts\Mailer );
+    $this->assertTrue( Mailer::transport() instanceof \Pragmatiqu\Mail\Contracts\Mailer );
   }
 
   /** @test */

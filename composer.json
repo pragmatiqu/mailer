@@ -1,58 +1,59 @@
 {
-  "name": "pragmaticag/mailer",
-  "description": "Sending Laravel Mails from Twig Templates",
-  "keywords": [
-      "Laravel",
-      "Mail",
-      "Twig",
-      "Templates"
-  ],
-  "homepage": "https://github.com/pragmaticag/mailer",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Michael Gerzabek",
-      "email": "michael.gerzabek@gmail.com",
-      "role": "Developer"
-    }
-  ],
-  "require": {
-    "php": "^8.2",
-    "illuminate/contracts": "^9.52.16|^10.0|^11.0",
-    "symfony/mailer": "^v6.3.12|^v7.0.3",
-    "symfony/twig-bridge": "^v6.4.3|^v7.0.3"
-  },
-  "require-dev": {
-    "orchestra/testbench": "^v8.21.1",
-    "phpunit/phpunit": "^10.5.10"
-  },
-  "autoload": {
-    "psr-4": {
-      "Pragmatic\\Mail\\": "src"    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Pragmatic\\Mail\\Tests\\": "tests/src"    }
-  },
-  "scripts": {
-    "test": "vendor/bin/phpunit --colors=always --testdox",
-    "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
-    "migrate": "vendor/bin/testbench migrate",
-    "rollback": "vendor/bin/testbench migrate:rollback"
-  },
-  "config": {
-    "sort-packages": true
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Pragmatic\\Mail\\MailerServiceProvider"
-      ],
-      "aliases": {
-        "Mailer": "Pragmatic\\Mail\\Mailer"
-      }
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+	"name" : "pragmatiqu/mailer",
+	"description" : "Sending Laravel Mails from Twig Templates",
+	"keywords" : [
+		"Laravel",
+		"Mail",
+		"Twig",
+		"Templates"
+	],
+	"homepage" : "https://github.com/pragmaticag/mailer",
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Michael Gerzabek",
+			"email" : "michael.gerzabek@gmail.com",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"php" : "^8.2",
+		"illuminate/contracts" : "^9.52.16|^10.0|^11.0",
+		"symfony/mailer" : "^v6.3.12|^v7.0.3",
+		"symfony/twig-bridge" : "^v6.4.3|^v7.0.3"
+	},
+	"require-dev" : {
+		"orchestra/testbench" : "^v8.21.1",
+		"phpunit/phpunit" : "^10.5.10"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Pragmatic\\Mail\\" : "src"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"Pragmatic\\Mail\\Tests\\" : "tests/src"
+		}
+	},
+	"scripts" : {
+		"test" : "vendor/bin/phpunit --colors=always --testdox",
+		"test-coverage" : "vendor/bin/phpunit --coverage-html coverage",
+		"migrate" : "vendor/bin/testbench migrate",
+		"rollback" : "vendor/bin/testbench migrate:rollback"
+	},
+	"config" : {
+		"sort-packages" : true
+	},
+	"extra" : {
+		"laravel" : {
+			"providers" : [
+				"Pragmatic\\Mail\\MailerServiceProvider"
+			],
+			"aliases" : {
+				"Mailer" : "Pragmatic\\Mail\\Mailer"
+			}
+		}
+	},
+	"minimum-stability" : "dev",
+	"prefer-stable" : true
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Pragmatic\Mail;
+namespace Pragmatiqu\Mail;
 
 
 use Illuminate\Support\Collection;

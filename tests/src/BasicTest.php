@@ -1,9 +1,9 @@
 <?php
 
-namespace Pragmatic\Mail\Tests;
+namespace Pragmatiqu\Mail\Tests;
 
 use Illuminate\Support\Str;
-use Pragmatic\Mail\Status;
+use Pragmatiqu\Mail\Status;
 use Symfony\Component\Mime\Address;
 
 class BasicTest extends TestCase

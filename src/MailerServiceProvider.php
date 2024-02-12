@@ -1,10 +1,10 @@
 <?php
 
-namespace Pragmatic\Mail;
+namespace Pragmatiqu\Mail;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
-use Pragmatic\Mail\Contracts\MailFactory;
+use Pragmatiqu\Mail\Contracts\MailFactory;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 

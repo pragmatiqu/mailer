@@ -1,9 +1,9 @@
 <?php
 
-namespace Pragmatic\Mail;
+namespace Pragmatiqu\Mail;
 
 use InvalidArgumentException;
-use Pragmatic\Mail\Contracts\Mailer;
+use Pragmatiqu\Mail\Contracts\Mailer;
 use Symfony\Bridge\Twig\Mime\BodyRenderer;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Mailer\EventListener\MessageListener;
