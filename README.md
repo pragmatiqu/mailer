@@ -5,7 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/pragmatiqu/mailer/Check%20&%20fix%20styling?label=code%20style)](https://github.com/pragmatiqu/mailer/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/pragmatiqu/mailer.svg?style=flat-square)](https://packagist.org/packages/pragmatiqu/mailer)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Send templated emails from twig templates.
 
 ## Support us
 
@@ -23,15 +23,9 @@ You can install the package via composer:
 composer require pragmatiqu/mailer
 ```
 
-Don’t forget to run the migrations with:
-
-```bash
-php artisan migrate
-```
-
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Pragmatiqu\Mail\LiquidMailServiceProvider" --tag="mail"
+php artisan vendor:publish --provider="Pragmatiqu\Mail\MailerServiceProvider" --tag="config"
 ```
 
 This is the contents of the published config file:
