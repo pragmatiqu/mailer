@@ -13,7 +13,7 @@ interface Mailer
    *
    * @param TemplatedEmail $email Name of the mail template
    * @param array          $data  Additional data to merge into the template
-   * @return Status     The status of the send
+   * @return Status     status of sending the email
    */
   public function send( TemplatedEmail $email, array $data = [] ): Status;
 
@@ -28,5 +28,4 @@ interface Mailer
    */
   public function spread( Collection $recipients, string $template, array $data = [] ): array;
 
-  // TODO Die Collection werden wir auch noch minimal spezifizieren und dann geht’s dahin…
 }
